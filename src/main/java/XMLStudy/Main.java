@@ -1,8 +1,6 @@
 package XMLStudy;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
+import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 
 
@@ -21,7 +19,7 @@ public class Main {
         Document doc = builder.parse(new File("company.xml"));
         Node root = doc.getDocumentElement();
         System.out.println("Корневой элемент: " + root.getNodeName());
-        //read(root);
+        read(root);
 
     }
 
@@ -32,7 +30,15 @@ public class Main {
             Node node_ = nodeList.item(i);
 
             if (Node.ELEMENT_NODE == node_.getNodeType()) {
-                System.out.println("Текущий узел ");
+                System.out.println("Текущий узел " + node_.getNodeName());
+                Element element = (Element) node_;
+                NamedNodeMap map = element.getAttributes();
+                for (int a = 0; a < map.getLength(); a++) {
+                    String attrName = map.item(a).getNodeName();
+                    String attrValue = map.item(a).getNodeValue();
+                    System.out.println("Атрибут " + attrName + " значение " + attrValue);
+                }
+                read(node_);
             }
         }
     }
