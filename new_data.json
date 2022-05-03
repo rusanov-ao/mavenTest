@@ -1,0 +1,13 @@
+{
+  "boolean": true,
+  "booleanString": "true",
+  "null": null,
+  "nullString": "null",
+  "name": "mkyong.com",
+  "message": [
+    "msg 1",
+    "msg 2",
+    "msg 3"
+  ],
+  "age": 100
+}
