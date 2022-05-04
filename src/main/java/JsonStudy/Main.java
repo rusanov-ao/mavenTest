@@ -85,8 +85,13 @@ public class Main {
 //        Gson gson = builder.create();
 //        System.out.println(gson.toJson(cat));
 
+
+        // десерелизация
         String jsonText = "{\"name\":\"Мурзик\",\"color\":-16777216,\"age\":9}";
 
         GsonBuilder builder = new GsonBuilder();
+        Gson gson = builder.create();
+        Cat cat = gson.fromJson(jsonText, Cat.class);
+        System.out.println("Имя: " + cat.name + "\nВозраст: " + cat.age + "\nЦвет: " + cat.color);
     }
 }
